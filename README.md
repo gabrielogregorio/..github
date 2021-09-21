@@ -1,3 +1,39 @@
+## Gitflow
+## Gitflow
+No windows o Gitflow já vem instalado, mas no Linux, é preciso instalar o git e o git-flow
+```
+sudo apt-get install git-flow
+```
+Então é preciso inicializar o gitflow, use o comando 
+```
+git flow init
+```
+
+O comando abaixo permite verificar as branchs, agora deveremos ter a branch main e a develop. A main é sagrada e devemos nos aventurar na branch develop.
+```
+git branch
+```
+
+Para trocar de branch precisamos executar o comando abaixo
+```
+git checkout main
+```
+
+
+git push -u origin develop
+```
+Envia a branch desenvolvimento, para o github
+```
+
+
+-------------
+
+A partir da branch develop, podemos criar as features da aplicação, com o gitflow podemos usar o seguinte comando
+```
+git flow feature start feature_gitflow
+```
+
+
 
 ## Versionamento Semantico
 As versões devem ser numeradas com números de 0 a 9, sendo no seguinte formato
