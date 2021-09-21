@@ -1,7 +1,23 @@
-# Básico
 
-### Configurações 
+## Versionamento Semantico
+As versões devem ser numeradas com números de 0 a 9, sendo no seguinte formato
+```text
+Major, Minor, Patch // => 1.0.0
+```
 
+| Item | Descrição |
+|------|-----------|
+| Major | Cada versão nova informa funcionalidade e códigos incompatíveis com os anteriores |
+| Minor | Informa novas funcionalidades, sem incompatibilidade com versões anteriores |
+| Patch | Indica correção de bugs, porém, sem quebra de compatibilidade |
+| Pré-release | Versão ainda instável |
+
+
+--------------------
+
+## Git & Github
+
+### Configurações    
     git config --global user.name "Gabriel Gregório"  
     git config --global user.email "gabriel.gregorio.1@outlook.com"   
     git config --global core.editor code    
