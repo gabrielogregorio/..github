@@ -1,5 +1,5 @@
 ## Gitflow
-## Gitflow
+## Gitflow 
 No windows o Gitflow já vem instalado, mas no Linux, é preciso instalar o git e o git-flow
 ```
 sudo apt-get install git-flow
