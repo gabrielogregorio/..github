@@ -125,7 +125,7 @@ TA INCOMPLETO
 
 #### Tirar o arquivo do stage (add)
     git reset HEAD
-
+ 
 ### Depois do commit quebrou
 > pega um hash antes do commit bugado
 
