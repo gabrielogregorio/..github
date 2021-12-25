@@ -325,7 +325,7 @@ Trabalhando com as tags. Acabei o front, tag de fim de front
 ## Reversões
 Código quebrou, quero salvar a versão atual e voltar na antiga, depois volto nessa versão e verifico o problema, como fazer?
 
-Usando o git Revert
+Usando o git Revert commit
 
     git revert 16110104a33763e5d109932edb1afaa43f21b0a3
 
