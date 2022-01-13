@@ -198,6 +198,16 @@ git reset --mixed 3b9bfc5feb84249255df03c8406dfb12c38ffaea
 git reset --hard 3b9bfc5feb84249255df03c8406dfb12c38ffaea
 ```
 
+## Resolução de conflitos no PR
+```shell
+[pr criado, myFeature com conflitos com develop]
+git checkout myFeature
+git fetch
+git pull origin develop
+[resolve]
+git commit -m "my commit"
+git push origin myFeature
+```
 
 
 ## Outros comandos git
