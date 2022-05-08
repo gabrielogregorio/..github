@@ -3,7 +3,21 @@
 * Fork: Pega um projeto que não é seu e faz uma cópia para você. Pode unir com o repositório principal
 
 
-## gitflow s
+## Github cli
+
+```shell
+# https://cli.github.com/manual/gh_repo_create
+# create a repository interactively
+gh repo create
+
+# create a new remote repository and clone it locally
+gh repo create my-project --public --clone
+
+# create a remote repository from the current directory
+gh repo create my-project --private --source=. --remote=upstream
+```
+
+## gitflow flow
 
 ```shell
 # No Windows o gitflow já vem instalado com o git, mas no Linux/MacOs, é preciso instalar o git e o gitflow
