@@ -90,6 +90,12 @@ git config user.email
 # Ver uma lista de todas as definições
 git config --list
 
+# clone, set personal token (classic)
+git clone
+
+# salve crendential? 
+git config --global credential.helper store
+
 ```
 
 ## git basics
