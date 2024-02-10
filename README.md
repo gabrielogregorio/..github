@@ -123,6 +123,9 @@ git commit -m "Primeiro commit"
 #Fazendo um commit e adicionando
 git commit -am "Edit Readme"
 
+# Buscar nos commits por algum commit que tenha o texto example
+git log -S "example"
+
 ```
     
 ### git log
