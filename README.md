@@ -292,3 +292,184 @@ O Rebase move o commit para a frente, modificando o histórico das brancs. Coloc
     git rebase brebase
 
 Rebase não polui o histórico, o merge da um histórico mais detalhado
+
+
+
+-------------
+
+# Configurando uma gpg key
+
+
+Ver chaves disponíveis
+```bash
+gpg --list-secret-key --keyid-form LONG
+```
+
+Gerar uma chave RSA
+```bash
+gpg --full-generate-key
+gpg (GnuPG)...
+This is free....
+There is NO.....
+
+Por favor selecione o tipo de chave desejado:
+   (1) RSA e RSA (padrão)
+   (2) DSA e Elgamal
+   (3) DSA (apenas assinatura)
+   (4) RSA (apenas assinar)
+  (14) Existing key from card
+Sua opção? 1
+```
+
+Escolher 4096
+```bash
+RSA chaves podem ter o seu comprimento entre 1024 e 4096 bits.
+Que tamanho de chave você quer? (3072) 4096
+```
+
+Escolher tempo, exemplo 1 ano
+```bash
+O tamanho de chave pedido é 4096 bits
+Por favor especifique por quanto tempo a chave deve ser válida.
+         0 = chave não expira
+      <n>  = chave expira em n dias
+      <n>w = chave expira em n semanas
+      <n>m = chave expira em n meses
+      <n>y = chave expira em n anos
+A chave é valida por? (0) 1y
+A chave expira em sex 06 jun 2077 06:05:12 -03
+Está correto (s/N)? y
+```
+
+Preencher dados
+```bash
+Escolher nome e e-mail
+Nome completo: Your Name
+Endereço de correio eletrônico: yourEmail@gmail.com.com
+Comentário: 
+You are using the 'utf-8' character set.
+Você selecionou este identificador de usuário:
+    "Your Name <yourEmail@gmail.com.com>"
+
+Muda (N)ome, (C)omentário, (E)ndereço ou (O)k/(S)air? o
+Precisamos gerar muitos bytes aleatórios. É uma boa idéia realizar outra
+atividade (digitar no teclado, mover o mouse, usar os discos) durante a
+```
+
+
+
+Listar chaves novamente
+```bash
+gpg --list-secret-key --keyid-form LONG
+```
+
+Exemplos de KEY_YOUR_GPG
+```bash
+sec   rsa4096/KEY_YOUR_GPG 2024-06-06 [SC] [expira: 2077-06-06]
+```
+Exportar uma public key
+
+```bash
+$ gpg --armor --export KEY_YOUR_GPG
+```
+
+Copy all text from your public key
+
+```bash
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+BLABLABLA
+-----END PGP PUBLIC KEY BLOCK-----
+```
+
+Adicione a key no git
+
+```bash
+git config --global user.signinkey KEY_YOUR_GPG
+```
+
+Adicione a key no bash
+
+
+```bash
+nano ~/.bashrc 
+# Adicioen no final
+export GPG_TTY=$(tty)
+```
+
+Diga para o git assinar os commits e tags por padrão
+
+```bash
+git config --global commit.gpgsign true
+git config --global tag.gpgSign true
+```
+
+No github, vá em `configurações` e vá em `SSH and GPG keys` e crie uma nova chave
+
+REINICIE SEU BASH, OU ABRA E FECHE
+
+Se não estiver funcionando, o gpg pode estar off.
+
+Agora faça commits, digite sua senha, a dependendo do lugar você pode salvar sua key.
+
+-------------
+
+# Adicionar outros e-mails
+
+Editar a chave
+
+```bash
+gpg --edit-key KEY_YOUR_GPG
+```
+
+Adicionar id
+
+```bash
+gpg> adduid
+Nome completo: TourNameSecondEmail
+Endereço de correio eletrônico: newEmail@example.com
+Comentário: 
+Você selecionou este identificador de usuário:
+    "TourNameSecondEmail <newEmail@example.com>"
+
+Muda (N)ome, (C)omentário, (E)ndereço ou (O)k/(S)air? o
+```
+
+Selecionar o novo, que é o 2 nesse caso
+
+```bash
+gpg> uid 2
+```
+
+Confiar
+
+```bash
+gpg> trust
+```
+
+Confirmar
+
+```
+Por favor decida quanto você confia neste usuário para
+verificar corretamente as chaves de outros usuários
+(olhando em passaportes, checando impressões digitais
+de outras fontes...)
+
+  1 = Eu não sei ou nem direi
+  2 = Eu NÃO confio
+  3 = Eu tenho pouca confiança
+  4 = Eu confio totalmente
+  5 = Eu confio ao extremo
+  m = voltar ao menu principal
+
+Sua decisão? 5
+Você quer realmente definir esta chave à confiança final? y
+```
+
+Salvar
+
+```bash
+gpg> save
+```
+
+
+
