@@ -427,7 +427,7 @@ Adicione a key no bash
 
 ```bash
 nano ~/.bashrc 
-# Adicioen no final
+# Adicione no final
 export GPG_TTY=$(tty)
 ```
 
