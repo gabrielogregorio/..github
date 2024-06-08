@@ -293,6 +293,41 @@ O Rebase move o commit para a frente, modificando o histórico das brancs. Coloc
 
 Rebase não polui o histórico, o merge da um histórico mais detalhado
 
+---- 
+
+
+## Adicionar o nome da branch no cli do Ubuntu 22
+
+Abra o 
+```bash
+nano ~/.bashrc 
+```
+
+cole no final
+
+```bash
+# BRANCH COLOR
+# Show git branch name
+force_color_prompt=yes
+color_prompt=yes
+parse_git_branch() {
+ git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+if [ "$color_prompt" = yes ]; then
+ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033>
+else
+ PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(parse_git_branch)\$ '
+fi
+unset color_prompt force_color_prompt
+```
+
+Recarregue o bash
+
+```bash
+source ~/.bashrc
+```
+
+
 
 
 -------------
